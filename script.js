@@ -14,4 +14,13 @@ async function fetchJoke(category) {
         } else if (data.type === "twopart") { 
             jokeText = `${data.setup} ... ${data.delivery}`;
         }
-    }}
+        
+        document.getElementById("jokes").textContent = jokeText;
+        updateTitle(category);
+    } catch (error) {
+        console.error("Error fetching joke:", error);    // when there is an error in the system
+        document.getElementById("jokes").textContent = "Oops! Go back, and try again!";
+    }
+}
+
+
