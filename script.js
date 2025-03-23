@@ -1,16 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetchJoke("Any"); // Load a random joke when the page loads
+    fetchJoke("Any"); // load system when page reloads
 });
 
 async function fetchJoke(category) {
     try {
         const response = await fetch(`https://v2.jokeapi.dev/joke/${category}?safe-mode`);
-        const data = await response.json();
+        const data = await response.json();  // Allows system to fetch APIs
         
+         // for one single and two part jokes
         let jokeText = "";
         if (data.type === "single") {
             jokeText = data.joke;
-        } else if (data.type === "twopart") {
+        } else if (data.type === "twopart") { 
             jokeText = `${data.setup} ... ${data.delivery}`;
         }
     }}
