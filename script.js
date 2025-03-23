@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetchJoke("Any"); // load system when page reloads
 });
 
 async function fetchJoke(category) {
@@ -22,5 +21,12 @@ async function fetchJoke(category) {
         document.getElementById("jokes").textContent = "Oops! Go back, and try again!";
     }
 }
-
+  // finally for the special pun section
+function updateTitle(category) {
+    let title = "A Random " + category + " Joke";
+    if (category === "Pun") {
+        title = "A Random Pun";
+    }
+    document.getElementById("jokeTitle").textContent = title;
+}
 
